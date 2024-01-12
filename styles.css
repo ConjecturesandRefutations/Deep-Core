@@ -1,0 +1,11 @@
+html, body{
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    font-family: 'Courier New', sans-serif;
+    color: red;
+  }
+
+#canvas{
+    border: 2px solid red;
+}
