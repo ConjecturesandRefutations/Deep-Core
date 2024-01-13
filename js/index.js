@@ -27,7 +27,7 @@ function startGame(){
   currentGame.bullets = [];
 
    //Instantiate a new player
-   currentPlayer = new Player();
+   currentPlayer = new Player(50,50);
    currentPlayer.drawPlayer();
 
    addTouchListeners();

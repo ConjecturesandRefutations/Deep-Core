@@ -2,8 +2,8 @@ class Bullet {
     constructor(x, y, angle) {
       this.x = x;
       this.y = y;
-      this.width = 10;
-      this.height = 30;
+      this.width = 5;
+      this.height = 10;
       this.angle = angle
       this.speed = 10; 
       this.radius = 2; 
@@ -77,4 +77,3 @@ class Bullet {
     currentPlayer.shootBullet();
     currentPlayer.bulletFired = false;
   });
-  
