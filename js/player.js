@@ -2,8 +2,8 @@ class Player {
   constructor() {
     this.x = canvas.width/2;
     this.y = canvas.height/2;
-    this.width = 70;
-    this.height = 70;
+    this.width = 60;
+    this.height = 60;
     this.angle = 0;
     this.img = './images/pistol-1.png'
     this.upButtonDown = false;
@@ -164,34 +164,35 @@ class Player {
       // Adjust the offset based on the player's direction
       if (this.angle === (-Math.PI) / 4) {
          //up-right
-         offsetX = 75;
+         offsetX = 70;
          offsetY = 15;
       } else if (this.angle === (3 * Math.PI) / 4) {
         //down-left
         offsetY = 40
+        offsetX = -7
       } else if (this.angle === Math.PI / 4) {
         //down-right
         offsetX = 45;
         offsetY = 70;
       } else if (this.angle === (-3 * Math.PI) / 4) {
         //up-left
-        offsetX = 10
+        offsetX = 15
         offsetY =- 10
       }
       else if (this.angle === 0) {
         // Player is pointing right
-        offsetX = 70;
-        offsetY = 53;
+        offsetX = 60;
+        offsetY = 49;
       } else if (this.angle === Math.PI / 2) {
         // Player is pointing down
-        offsetX = 16;
-        offsetY = 70;
+        offsetX = 10;
+        offsetY = 60;
       }  else if (this.angle === -Math.PI / 2) {
         // Player is pointing up
-        offsetX = 53;
+        offsetX = 48;
       }else if (this.angle = Math.PI) {
         //Player is pointing left
-        offsetY = 15;
+        offsetY = 10;
       }
   
       // Create the bullet with adjusted initial position

@@ -6,8 +6,8 @@ let enemyFrequency = 0; // support the logic for generating enemies
 let enemySpeed = 3;
 let divisor = 60;
 
-let background = new Image();
-background.src = "./images/field.jpg";
+/* let background = new Image();
+background.src = "./images/field.jpg"; */
 
 //Opening Section
 const opening = document.querySelector('.opening-section');
@@ -30,8 +30,8 @@ window.onload = () => {
 
 function startGame(){
   currentGame = new Game();
-  ctx.drawImage(background, 0, 0,canvas.width,canvas.height); // draw background image
-  currentGame.bullets = [];
+/*   ctx.drawImage(background, 0, 0,canvas.width,canvas.height); // draw background image
+ */  currentGame.bullets = [];
 
    //Instantiate a new player
    currentPlayer = new Player(50,50);
@@ -49,8 +49,8 @@ function startGame(){
 
 function updateCanvas() {
   ctx.clearRect(0, 0, canvas.width, canvas.height); // clear canvas
-  ctx.drawImage(background, 0, 0,canvas.width,canvas.height); // redraw the background
-
+/*   ctx.drawImage(background, 0, 0,canvas.width,canvas.height); // redraw the background
+ */
   currentPlayer.drawPlayer();
   enemyFrequency++;
 

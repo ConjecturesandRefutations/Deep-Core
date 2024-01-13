@@ -2,8 +2,8 @@ class Enemy {
     constructor(x, y, width, height) {
       this.x = x;
       this.y = y;
-      this.width = 70;
-      this.height = 70;
+      this.width = 60;
+      this.height = 60;
       this.img = './images/enemy.png';
       this.destroyed = false;
       this.wasHit = false;
