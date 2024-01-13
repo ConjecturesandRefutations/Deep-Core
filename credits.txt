@@ -1,3 +1,6 @@
 The player sprites used in this game were created Riley Gombart. This pack is licensed under CC-BY 3.0. They can be found at `https://unluckystudio.com/free-top-down-shooterplayer-sprites/`
 
 The favicon bullet image comes from <a href="https://www.freepnglogos.com/images/bullet-8468.html">Get it on golden bullets images</a>
+
+Photo of snow field by <a href="https://unsplash.com/@odiin?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Erik Odiin</a> on <a href="https://unsplash.com/photos/three-parked-vehicles-on-snow-surface-SP8TsqCsJ_g?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+    

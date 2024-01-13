@@ -2,8 +2,8 @@ class Bullet {
     constructor(x, y, angle) {
       this.x = x;
       this.y = y;
-      this.width = 5;
-      this.height = 10;
+      this.width = 7;
+      this.height = 14;
       this.angle = angle
       this.speed = 10; 
       this.radius = 2; 
@@ -11,7 +11,7 @@ class Bullet {
 
       // Create an Image object for the bullet image
     this.img = new Image();
-    this.img.src = './images/pistol-bullet.png'; 
+    this.img.src = './images/bullet.png'; 
 
     // Listen for the 'load' event to ensure the image is loaded
     this.img.onload = () => {

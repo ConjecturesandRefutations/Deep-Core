@@ -43,7 +43,8 @@ canvas{
   background-color: transparent;
   color: darkred;
   border-radius: 50%;
-  font-size: 18px;
+  font-size: 30px;
+  font-weight: bolder;
   cursor: pointer;
   display: flex;
   justify-content: center;
