@@ -199,6 +199,7 @@ class Player {
       const bullet = new Bullet(this.x + offsetX, this.y + offsetY, this.angle);
       currentGame.bullets.push(bullet);
       this.bulletFired = true; // Set the flag to true
+      gunshot.currentTime = 0;
       gunshot.play();
     }
   }

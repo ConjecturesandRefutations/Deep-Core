@@ -100,6 +100,7 @@ canvas{
   bottom: 15px;
   left: 20px;
   z-index: 5;
+  font-size: 20px;
 }
 
 @media(min-width:1111px){
@@ -108,15 +109,9 @@ canvas{
   }
 }
 
-@media(max-width:300px){
-  #shoot{
-    left: 170px;
-    bottom: 20px;
-  }
-}
-
-@media(max-width:400px){
+@media(max-width:450px){
   .score{
       bottom: 30%;
+      font-size: 18px;
   }
 }
