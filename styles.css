@@ -95,6 +95,13 @@ canvas{
   transform: translate(-50%);  
 }
 
+.score{
+  position: absolute;
+  bottom: 15px;
+  left: 20px;
+  z-index: 5;
+}
+
 @media(min-width:1111px){
   .arrow-controls{
     display: none;

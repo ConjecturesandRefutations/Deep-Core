@@ -16,6 +16,11 @@ const opening = document.querySelector('.opening-section');
 const arrowControls = document.querySelector('.arrow-controls');
 arrowControls.style.display = 'none';
 
+//Score Section
+const score = document.querySelector('.score');
+score.style.display = 'none';
+const scoreValue = document.getElementById('score-value');
+
 // Start Button
 window.onload = () => {
   const startButton = document.getElementById('start-button');
@@ -23,6 +28,7 @@ window.onload = () => {
     canvas.style.display = '';
     opening.style.display = 'none';
     arrowControls.style.display = '';
+    score.style.display = '';
     //stone.play();
     startGame();
   };
@@ -70,6 +76,8 @@ for (let i = currentGame.bullets.length - 1; i >= 0; i--) {
         if (!enemy.wasHit) { // Check if the enemy was not hit before
           grunt.play();
           enemy.destroy();
+          currentGame.score++;
+          scoreValue.innerText = currentGame.score;
           enemy.wasHit = true; // Mark the enemy as hit
         }
 
