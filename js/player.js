@@ -105,7 +105,10 @@ class Player {
         // right arrow key
         this.rightButtonDown = false;
         this.stopMovingPlayer();
-      } 
+      } else if (event.keyCode === 32) {
+        // space key
+        this.bulletFired = false;
+      }
     }
   
     throttle(callback, delay) {
@@ -127,12 +130,16 @@ class Player {
             
           if (direction === 'up' && this.upButtonDown && this.y > 5) {
             this.y -= 7;
+            stepOne.play();
           } else if (direction === 'down' && this.downButtonDown && this.y < canvas.height - this.height - 5) {
             this.y += 7;
+            stepOne.play();
           } else if (direction === 'left' && this.leftButtonDown && this.x > 15) {
             this.x -= 7;
+            stepOne.play();
           } else if (direction === 'right' && this.rightButtonDown && this.x < canvas.width - this.width - 15) {
             this.x += 7;
+            stepOne.play();
           }
           requestAnimationFrame(movePlayer);
         }
@@ -146,6 +153,15 @@ class Player {
       // Stop the player's movement when all buttons are released
       if (!this.upButtonDown && !this.downButtonDown && !this.leftButtonDown && !this.rightButtonDown) {
         cancelAnimationFrame(this.requestAnimationFrame);
+      }
+    }
+
+    shootBullet() {
+      if (!this.bulletFired) {
+        const bullet = new Bullet(this.x, this.y, this.angle);
+        currentGame.bullets.push(bullet);
+        this.bulletFired = true; // Set the flag to true
+          gunshot.play();
       }
     }
 
@@ -244,3 +260,10 @@ class Player {
       currentPlayer.stopMovingPlayer();
     };
   }
+
+  document.addEventListener('keydown', (event) => {
+    if (event.keyCode === 32) {
+      // Spacebar key
+      currentPlayer.shootBullet();
+    }
+  });

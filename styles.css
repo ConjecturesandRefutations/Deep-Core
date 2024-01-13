@@ -71,6 +71,14 @@ canvas{
   font-size: 40px;
 }
 
+#shoot{
+  left: 200px;
+}
+
+#bullet{
+  height: 50px;
+}
+
 .arrow-controls {
   width: 180px;
   height: 180px;
@@ -88,5 +96,12 @@ canvas{
 @media(min-width:1111px){
   .arrow-controls{
     display: none;
+  }
+}
+
+@media(max-width:300px){
+  #shoot{
+    left: 170px;
+    bottom: 20px;
   }
 }
