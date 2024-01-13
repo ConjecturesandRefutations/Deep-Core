@@ -184,6 +184,7 @@ class Player {
         offsetY = 53;
       } else if (this.angle === Math.PI / 2) {
         // Player is pointing down
+        offsetX = 16;
         offsetY = 70;
       }  else if (this.angle === -Math.PI / 2) {
         // Player is pointing up

@@ -11,7 +11,7 @@ class Bullet {
 
       // Create an Image object for the bullet image
     this.img = new Image();
-    this.img.src = './images/bullet.png'; 
+    this.img.src = './images/pistol-bullet.png'; 
 
     // Listen for the 'load' event to ensure the image is loaded
     this.img.onload = () => {
