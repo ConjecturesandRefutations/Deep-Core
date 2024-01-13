@@ -1,11 +1,93 @@
 html, body{
     margin: 0;
     padding: 0;
-    background-color: black;
     font-family: 'Courier New', sans-serif;
     color: red;
-  }
+}
 
-#canvas{
-    border: 2px solid red;
+.opening-section{
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+background-color: black;
+}
+
+.opening-options{
+position: absolute;
+left: 50%;
+top: 50%;
+transform: translate(-50%,-50%);
+}
+
+canvas{
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  transform-origin: top left;
+  z-index: 0;
+}
+
+#start-button{
+  font-family: 'Courier New', sans-serif;
+  color: red;
+  cursor: pointer;
+  background-color: black;
+}
+
+.arrow-button {
+  width: 60px;
+  height: 60px;
+  background-color: transparent;
+  color: darkred;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+}
+
+.up {
+  top: 10px;
+  font-size: 40px;
+}
+
+.down {
+  bottom: 10px;
+  font-size: 40px;
+}
+
+.left {
+  left: 10px;
+  font-size: 40px;
+}
+
+.right {
+  right: 10px;
+  font-size: 40px;
+}
+
+.arrow-controls {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: -70px;
+  left: 50%;
+  transform: translate(-50%);  
+}
+
+@media(min-width:1111px){
+  .arrow-controls{
+    display: none;
+  }
 }

@@ -7,15 +7,36 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Deep Core</h1>
-    
-    <h3>Settings</h3>
-    <h3>Instructions</h3>
-    <h3>Opening Music</h3>
-    <button id="start-button">Start Game</button>
+
+    <section class="opening-section">
+
+        <article class="opening-options">
+
+            <h1>Deep Core</h1>
+            
+            <h3>Settings</h3>
+            <h3>Instructions</h3>
+            <h3>Opening Music</h3>
+            <button id="start-button">Start Game</button>
+
+        </article>
+
+    </section>
 
     <canvas id="canvas"></canvas>
 
+    <section class="arrow-controls">
+        <button class="arrow-button up" id="up-button">↑</button>
+        <button class="arrow-button down" id="down-button">↓</button>
+        <button class="arrow-button left" id="left-button">←</button>
+        <button class="arrow-button right" id="right-button">→</button>
+    </section>
+
+ 
     <script src="js/index.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/player.js"></script>
+    <script src="js/canvas.js"></script>
 </body>
 </html>

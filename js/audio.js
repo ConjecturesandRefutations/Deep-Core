@@ -1,0 +1,1 @@
+const stone = new Audio('./audio/stone.mp3');
