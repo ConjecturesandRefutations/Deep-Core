@@ -1,7 +1,7 @@
 class Game {
     constructor() {
         this.player = {},
-        this.obstacles = [];
+        this.enemies = [];
         this.score = 0;
         this.bullets = [];
     }
