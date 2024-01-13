@@ -163,6 +163,6 @@ for (let i = 0; i < currentGame.enemies.length; i++) {
   }
 }
 
-console.log(currentGame.bullets.length);
+console.log(currentGame.enemies.length);
   animationID = requestAnimationFrame(updateCanvas);
 }
