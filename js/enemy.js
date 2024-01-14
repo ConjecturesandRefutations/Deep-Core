@@ -28,20 +28,36 @@ class Enemy {
           Math.pow(currentPlayer.y - this.y, 2)
         );
   
-        // Flicker between holding and attacking images when within 75 pixels
-        if (distanceToPlayer <= 75) {
-          if (Math.floor(Date.now() / 300) % 2 === 0) {
-            // Change the image to the melee attacking image every 500 milliseconds
-            enemyImg.src = './images/enemy-knife-attack.png';
-            slash.play();
-          } else {
-            // Use the default knife-wielding image
-            enemyImg.src = this.img;
+            // Flicker between holding and attacking images when within 75 pixels
+      if (distanceToPlayer <= 75) {
+        const attacking = Math.floor(Date.now() / 300) % 2 === 0;
+        if (attacking) {
+          // Change the image to the melee attacking image every 500 milliseconds
+          enemyImg.src = './images/enemy-knife-attack.png';
+          slash.play();
+
+          // Deduct health only if not previously attacking
+          if (!this.wasAttacking && (distanceToPlayer <= 50) && (currentGame.health > 0)) {
+            currentGame.health -= 20;
+            healthValue.innerText = currentGame.health;
           }
+
+          this.wasAttacking = true;
         } else {
-          // Use the default knife-wielding image when not within 75 pixels
+          // Use the default knife-wielding image
           enemyImg.src = this.img;
+          this.wasAttacking = false;
         }
+      } else {
+        // Use the default knife-wielding image when not within 75 pixels
+        enemyImg.src = this.img;
+        this.wasAttacking = false; // Reset the attacking flag when not within 75 pixels
+      }
+
+      // Reset the attacking flag when moving out of 75 pixels range
+      if (distanceToPlayer > 75) {
+        this.wasAttacking = false;
+      }
   
         // Calculate the angle based on the player's position
         const angle = Math.atan2(currentPlayer.y - this.y, currentPlayer.x - this.x);

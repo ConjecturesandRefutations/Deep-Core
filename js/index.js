@@ -16,10 +16,11 @@ const opening = document.querySelector('.opening-section');
 const arrowControls = document.querySelector('.arrow-controls');
 arrowControls.style.display = 'none';
 
-//Score Section
+//Info Section
 const info = document.querySelector('.info');
 info.style.display = 'none';
 const scoreValue = document.getElementById('score-value');
+const healthValue = document.getElementById('health-value');
 
 // Start Button
 window.onload = () => {
@@ -181,6 +182,6 @@ for (let i = 0; i < currentGame.enemies.length; i++) {
   }
 }
 
-console.log(currentGame.enemies.length);
+console.log(currentGame.health);
   animationID = requestAnimationFrame(updateCanvas);
 }
