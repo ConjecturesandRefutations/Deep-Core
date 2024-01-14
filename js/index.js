@@ -96,8 +96,8 @@ if (enemyFrequency % divisor === 1) {
   const side = Math.floor(Math.random() * 4); // 0 for top, 1 for right, 2 for bottom, 3 for left
 
   let randomEnemyX, randomEnemyY;
-  let randomEnemyWidth = Math.floor(Math.random() * (150 - 30 + 1)) + 30;
-  let randomEnemyHeight = Math.floor(Math.random() * (150 - 30 + 1)) + 30;
+  let randomEnemyWidth = 50;
+  let randomEnemyHeight = 50;
 
   // Set initial position based on the chosen side
   switch (side) {
