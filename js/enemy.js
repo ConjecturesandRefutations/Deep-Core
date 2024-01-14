@@ -4,7 +4,7 @@ class Enemy {
       this.y = y;
       this.width = 50;
       this.height = 50;
-      this.img = './images/enemy.png';
+      this.img = './images/enemy-knife.png';
       this.destroyed = false;
       this.wasHit = false;
       this.bloodFrames = 10;
@@ -21,31 +21,32 @@ class Enemy {
         this.currentBloodFrame++;
       } else {
         const enemyImg = new Image();
-        enemyImg.src = this.img;
-  
-        // Calculate the angle based on the enemy's movement direction
-        switch (this.direction) {
-          case 0: // From top
-            this.angle = Math.PI / 2;
-            break;
-          case 1: // From Right
-            this.angle = Math.PI;
-            break;
-          case 2: // From Bottom
-            this.angle = -Math.PI / 2;
-            break;
-          case 3: // From Left
-            this.angle = 0;
-            break;
+    
+        // Calculate the distance between the enemy and the player
+        const distanceToPlayer = Math.sqrt(
+          Math.pow(currentPlayer.x - this.x, 2) +
+          Math.pow(currentPlayer.y - this.y, 2)
+        );
+    
+        if (distanceToPlayer <= 75) {
+          // Change the image to the melee attacking image
+          enemyImg.src = './images/enemy-knife-attack.png';
+        } else {
+          // Use the default knife-wielding image
+          enemyImg.src = this.img;
         }
-  
+    
+        // Calculate the angle based on the player's position
+        const angle = Math.atan2(currentPlayer.y - this.y, currentPlayer.x - this.x);
+    
         ctx.save();
         ctx.translate(this.x + this.width / 2, this.y + this.height / 2);
-        ctx.rotate(this.angle);
+        ctx.rotate(angle);
         ctx.drawImage(enemyImg, -this.width / 2, -this.height / 2, this.width, this.height);
         ctx.restore();
       }
     }
+    
 
       collidesWith(x, y) {
         return (
