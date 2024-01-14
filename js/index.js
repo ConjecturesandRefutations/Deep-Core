@@ -3,7 +3,7 @@ let currentGame;
 let currentPlayer;
 let animationID;
 let enemyFrequency = 0; // support the logic for generating enemies
-let enemySpeed = 3;
+let enemySpeed = 2;
 let divisor = 60;
 
 /* let background = new Image();
@@ -134,6 +134,16 @@ if (enemyFrequency % divisor === 1) {
 
 for (let i = 0; i < currentGame.enemies.length; i++) {
   const enemy = currentGame.enemies[i];
+
+   // Calculate the angle between the enemy and the player
+   const angle = Math.atan2(
+    currentPlayer.y - enemy.y,
+    currentPlayer.x - enemy.x
+  );
+
+  // Adjust the enemy's movement based on the angle
+  enemy.x += enemySpeed * Math.cos(angle);
+  enemy.y += enemySpeed * Math.sin(angle);
 
   if (enemy.wasHit && enemy.currentBloodFrame >= enemy.bloodFrames) {
     // Remove enemies after the blood animation is finished
