@@ -95,7 +95,7 @@ canvas{
   transform: translate(-50%);  
 }
 
-.score{
+.info{
   position: absolute;
   bottom: 15px;
   left: 20px;
@@ -110,7 +110,7 @@ canvas{
 }
 
 @media(max-width:450px){
-  .score{
+  .info{
       bottom: 30%;
       font-size: 18px;
   }

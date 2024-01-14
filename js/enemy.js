@@ -21,24 +21,31 @@ class Enemy {
         this.currentBloodFrame++;
       } else {
         const enemyImg = new Image();
-    
+  
         // Calculate the distance between the enemy and the player
         const distanceToPlayer = Math.sqrt(
           Math.pow(currentPlayer.x - this.x, 2) +
           Math.pow(currentPlayer.y - this.y, 2)
         );
-    
+  
+        // Flicker between holding and attacking images when within 75 pixels
         if (distanceToPlayer <= 75) {
-          // Change the image to the melee attacking image
-          enemyImg.src = './images/enemy-knife-attack.png';
+          if (Math.floor(Date.now() / 300) % 2 === 0) {
+            // Change the image to the melee attacking image every 500 milliseconds
+            enemyImg.src = './images/enemy-knife-attack.png';
+            slash.play();
+          } else {
+            // Use the default knife-wielding image
+            enemyImg.src = this.img;
+          }
         } else {
-          // Use the default knife-wielding image
+          // Use the default knife-wielding image when not within 75 pixels
           enemyImg.src = this.img;
         }
-    
+  
         // Calculate the angle based on the player's position
         const angle = Math.atan2(currentPlayer.y - this.y, currentPlayer.x - this.x);
-    
+  
         ctx.save();
         ctx.translate(this.x + this.width / 2, this.y + this.height / 2);
         ctx.rotate(angle);

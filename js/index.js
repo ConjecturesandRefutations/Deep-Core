@@ -17,8 +17,8 @@ const arrowControls = document.querySelector('.arrow-controls');
 arrowControls.style.display = 'none';
 
 //Score Section
-const score = document.querySelector('.score');
-score.style.display = 'none';
+const info = document.querySelector('.info');
+info.style.display = 'none';
 const scoreValue = document.getElementById('score-value');
 
 // Start Button
@@ -28,7 +28,7 @@ window.onload = () => {
     canvas.style.display = '';
     opening.style.display = 'none';
     arrowControls.style.display = '';
-    score.style.display = '';
+    info.style.display = '';
     //stone.play();
     startGame();
   };
