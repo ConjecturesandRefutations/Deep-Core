@@ -5,14 +5,17 @@ html, body{
     color: red;
     background-color: black;
 }
-
+   
 .opening-section{
   position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
-background-color: black;
+  background-color: black;
+  background-image: url('images/fingerprint.png'); 
+  background-repeat: no-repeat; 
+  background-position: center;
 }
 
 .opening-options{
@@ -108,6 +111,7 @@ canvas{
 }
 
 #title{
+  background-color: black;
   white-space: nowrap;
   font-size: 40px;
   position: absolute;
@@ -170,5 +174,11 @@ canvas{
   .info{
       bottom: 30%;
       font-size: 18px;
+  }
+}
+
+@media(max-width:400px){
+  #volume-icon{
+      background-color: black;
   }
 }
