@@ -11,8 +11,7 @@ class Enemy {
       this.currentBloodFrame = 0;
       this.bloodImage = new Image();
       this.bloodImage.src = './images/blood.png';
-      this.angle = 0; // Rotation angle for the enemy
-      this.direction = 0; // Movement direction: 0 for top, 1 for right, 2 for bottom, 3 for left
+      this.angle = 0; // Rotation angle
     }
   
     drawEnemy() {
@@ -32,14 +31,15 @@ class Enemy {
       if (distanceToPlayer <= 75) {
         const attacking = Math.floor(Date.now() / 300) % 2 === 0;
         if (attacking) {
-          // Change the image to the melee attacking image every 500 milliseconds
+          // Change the image to the melee attacking image every 300 milliseconds
           enemyImg.src = './images/enemy-knife-attack.png';
           slash.play();
 
           // Deduct health only if not previously attacking
-          if (!this.wasAttacking && (distanceToPlayer <= 50) && (currentGame.health > 0)) {
-            currentGame.health -= 20;
+          if (!this.wasAttacking && (distanceToPlayer <= 60) && (currentGame.health > 0)) {
+            currentGame.health -= 10;
             healthValue.innerText = currentGame.health;
+            wound.play();
           }
 
           this.wasAttacking = true;
