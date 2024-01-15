@@ -32,6 +32,10 @@ function startGame(){
 
 function updateCanvas() {
 
+  if(gameOver){
+    return;
+  }
+
   ctx.clearRect(0, 0, canvas.width, canvas.height); // clear canvas
 /*   ctx.drawImage(background, 0, 0,canvas.width,canvas.height); // redraw the background
  */
@@ -159,18 +163,28 @@ for (let i = 0; i < currentGame.enemies.length; i++) {
   }
 }
 
+//Logic for ending the game
+if(currentGame.health===0){
+  endGame();
+  finalScore.innerText = currentGame.score;
+  gameOver = true;
+}
+
   animationID = requestAnimationFrame(updateCanvas);
 
 }
 
 function resetScore(){
   gameOver = true;
-  cancelAnimationFrame(animationID);
-  currentPlayer.removeEventListeners();
   currentGame.health = 100;
   currentGame.score = 0;
   scoreValue.innerText = currentGame.score;
-  healthValue.innerText = currentGame.health;
+  healthValue.innerText = currentGame.health;  
 }
 
-console.log('is game over?', gameOver)
+function endGame(){
+  info.style.display = 'none';
+  canvas.style.display = 'none';
+  arrowControls.style.display = 'none';
+  GameOver.style.display = '';
+ }

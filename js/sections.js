@@ -11,6 +11,8 @@ info.style.display = 'none';
 const scoreValue = document.getElementById('score-value');
 const healthValue = document.getElementById('health-value');
 
+const finalScore = document.getElementById('finalScore');
+
 //Instructions Section
 const instructionSection = document.querySelector('.instruction-section');
 instructionSection.style.display = 'none';
@@ -33,17 +35,19 @@ const homeButton = document.getElementById('home-icon');
 homeButton.style.display = 'none';
 
   homeButton.onclick = () => {
+  console.log("Home button clicked");
   gameOver = true;
   resetScore();
   homeButton.style.display = 'none';
   openingAudioPlaying = false;
+  opening.currentTime = 0;
   arrowControls.style.display = 'none';
   info.style.display = 'none';
+  GameOver.style.display = 'none';
   volumeIcon.classList.remove('fa', 'fa-volume-up');
   volumeIcon.classList.add('fa', 'fa-volume-mute');
   openingSection.style.display = '';
   canvas.style.display = 'none';
-  console.log('is game over?', gameOver)
 }
 
 // Start Button
@@ -60,3 +64,18 @@ window.onload = () => {
   };
 };
 
+//Game Over Section
+const GameOver = document.querySelector('.game-over');
+GameOver.style.display = 'none';
+
+// Restart Button
+const restartButton = document.getElementById('restart-button');
+  restartButton.onclick = () => {
+  resetScore();
+  gameOver = false;
+  GameOver.style.display = 'none';
+  canvas.style.display = '';
+  info.style.display = '';
+  arrowControls.style.display = '';
+  startGame();
+}

@@ -12,7 +12,6 @@ html, body{
   left: 0;
   bottom: 0;
   right: 0;
-  background-color: black;
   background-image: url('images/fingerprint.png'); 
   background-repeat: no-repeat; 
   background-position: center;
@@ -27,9 +26,7 @@ canvas{
   z-index: 0;
 }
 
-#start-button{
-  font-family: 'Courier New', sans-serif;
-  color: red;
+#start-button,#restart-button{
   cursor: pointer;
   background-color: black;
   position: absolute;
@@ -105,7 +102,7 @@ canvas{
   font-weight: bold;
 }
 
-#title{
+#title,#died{
   background-color: black;
   white-space: nowrap;
   font-size: 40px;
@@ -151,6 +148,7 @@ canvas{
   transform: translate(-50%);
   margin-top: 21px;
   cursor: pointer;
+  z-index: 1000;
 }
 
 #volume-icon,#instruction-icon{
@@ -167,6 +165,28 @@ canvas{
   font-family: 'Courier New', sans-serif;
   font-size: large;
   cursor: pointer;
+}
+
+#final-score{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.game-over{
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-image: url('images/fingerprint.png'); 
+  background-repeat: no-repeat; 
+  background-position: center;
+}
+
+#final-score{
+  background-color: black;
 }
 
 @media(min-width:1111px){
