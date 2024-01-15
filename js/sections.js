@@ -23,9 +23,27 @@ const instructionButton = document.querySelector('.instruction-wrapper');
 
 // Back Button
 const backButton = document.getElementById('back');
-  backButton.onclick = () => {
+backButton.onclick = () => {
   openingSection.style.display = '';
   instructionSection.style.display = 'none';
+}
+
+//Home Button
+const homeButton = document.getElementById('home-icon');
+homeButton.style.display = 'none';
+
+  homeButton.onclick = () => {
+  gameOver = true;
+  resetScore();
+  homeButton.style.display = 'none';
+  openingAudioPlaying = false;
+  arrowControls.style.display = 'none';
+  info.style.display = 'none';
+  volumeIcon.classList.remove('fa', 'fa-volume-up');
+  volumeIcon.classList.add('fa', 'fa-volume-mute');
+  openingSection.style.display = '';
+  canvas.style.display = 'none';
+  console.log('is game over?', gameOver)
 }
 
 // Start Button
@@ -36,7 +54,9 @@ window.onload = () => {
     openingSection.style.display = 'none';
     arrowControls.style.display = '';
     info.style.display = '';
+    homeButton.style.display = '';
     pauseOpeningAudio();
     startGame();
   };
 };
+

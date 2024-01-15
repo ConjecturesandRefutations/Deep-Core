@@ -5,11 +5,13 @@ let animationID;
 let enemyFrequency = 0; // support the logic for generating enemies
 let enemySpeed = 2;
 let divisor = 60;
+let gameOver = false;
 
 /* let background = new Image();
 background.src = "./images/field.jpg"; */
 
 function startGame(){
+  gameOver = false;
   currentGame = new Game();
 /*   ctx.drawImage(background, 0, 0,canvas.width,canvas.height); // draw background image
  */  currentGame.bullets = [];
@@ -29,6 +31,7 @@ function startGame(){
 
 
 function updateCanvas() {
+
   ctx.clearRect(0, 0, canvas.width, canvas.height); // clear canvas
 /*   ctx.drawImage(background, 0, 0,canvas.width,canvas.height); // redraw the background
  */
@@ -156,6 +159,18 @@ for (let i = 0; i < currentGame.enemies.length; i++) {
   }
 }
 
-console.log(currentGame.health);
   animationID = requestAnimationFrame(updateCanvas);
+
 }
+
+function resetScore(){
+  gameOver = true;
+  cancelAnimationFrame(animationID);
+  currentPlayer.removeEventListeners();
+  currentGame.health = 100;
+  currentGame.score = 0;
+  scoreValue.innerText = currentGame.score;
+  healthValue.innerText = currentGame.health;
+}
+
+console.log('is game over?', gameOver)

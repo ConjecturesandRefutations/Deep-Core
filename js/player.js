@@ -127,7 +127,7 @@ class Player {
     
     // Use requestAnimationFrame to keep moving the player continuously
     const movePlayer = () => {
-      if (this.upButtonDown || this.downButtonDown || this.leftButtonDown || this.rightButtonDown) {
+      if ((this.upButtonDown || this.downButtonDown || this.leftButtonDown || this.rightButtonDown) && gameOver===false) {
           
         if (direction === 'up' && this.upButtonDown && this.y > 5) {
           this.y -= 7;
@@ -205,6 +205,10 @@ class Player {
     }
   }
 
+  removeEventListeners() {
+    document.removeEventListener('keydown', this.handleKeyDown);
+    document.removeEventListener('keyup', this.handleKeyUp);
+  }
 }
 
 function addTouchListeners() {
@@ -302,7 +306,7 @@ function addTouchListeners() {
 }
 
 document.addEventListener('keydown', (event) => {
-  if (event.keyCode === 32) {
+  if (event.keyCode === 32 && gameOver===false) {
     // Spacebar key
     currentPlayer.shootBullet();
   }
