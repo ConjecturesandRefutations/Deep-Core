@@ -11,6 +11,7 @@ class Player {
     this.leftButtonDown = false;
     this.rightButtonDown = false;
     this.throttleDelay = 100; // Keyboard Throttle Delay (Milliseconds)
+    this.isWounded = false;
 
     // Select the mobile-controls buttons
     this.leftButton = document.getElementById('left-button');
@@ -33,7 +34,7 @@ class Player {
 
   drawPlayer() {
     const playerImg = new Image();
-    playerImg.src = this.img;
+    playerImg.src = this.isWounded ? './images/player-wounded.png' : this.img;
   
     // Calculate the angle of rotation based on the player's current direction
     let angle = this.angle;

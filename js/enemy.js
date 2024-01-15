@@ -38,9 +38,15 @@ class Enemy {
           // Deduct health only if not previously attacking
           if (!this.wasAttacking && (distanceToPlayer <= 60) && (currentGame.health > 0)) {
             currentGame.health -= 10;
+            currentPlayer.isWounded = true;
+
+            // Set a timer to reset the wounded state after 500 milliseconds
+            setTimeout(() => {
+              currentPlayer.isWounded = false;
+            }, 500);
             healthValue.innerText = currentGame.health;
             wound.play();
-          }
+          } 
 
           this.wasAttacking = true;
         } else {
