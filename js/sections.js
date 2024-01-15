@@ -39,6 +39,7 @@ homeButton.style.display = 'none';
   gameOver = true;
   resetScore();
   homeButton.style.display = 'none';
+  muteButton.style.display = 'none'
   openingAudioPlaying = false;
   opening.currentTime = 0;
   arrowControls.style.display = 'none';
@@ -50,6 +51,11 @@ homeButton.style.display = 'none';
   canvas.style.display = 'none';
 }
 
+//Mute button
+
+const muteButton = document.getElementById('mute-icon');
+muteButton.style.display = 'none';
+
 // Start Button
 window.onload = () => {
   const startButton = document.getElementById('start-button');
@@ -59,6 +65,7 @@ window.onload = () => {
     arrowControls.style.display = '';
     info.style.display = '';
     homeButton.style.display = '';
+    muteButton.style.display = '';
     pauseOpeningAudio();
     startGame();
   };
@@ -77,5 +84,6 @@ const restartButton = document.getElementById('restart-button');
   canvas.style.display = '';
   info.style.display = '';
   arrowControls.style.display = '';
+  muteButton.style.display = '';
   startGame();
 }

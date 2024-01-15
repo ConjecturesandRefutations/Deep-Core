@@ -56,7 +56,7 @@ for (let i = currentGame.bullets.length - 1; i >= 0; i--) {
 
       if (enemy.collidesWith(bullet.x, bullet.y)) {
         if (!enemy.wasHit) { // Check if the enemy was not hit before
-          grunt.play();
+          if(!audioMuted){grunt.play()};
           enemy.destroy();
           currentGame.score++;
           scoreValue.innerText = currentGame.score;
@@ -187,4 +187,5 @@ function endGame(){
   canvas.style.display = 'none';
   arrowControls.style.display = 'none';
   GameOver.style.display = '';
+  muteButton.style.display = 'none';
  }

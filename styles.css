@@ -141,10 +141,21 @@ canvas{
 }
 
 
-#home-icon{
+#mute-icon{
   position: absolute;
   font-size: 30px;
   left: 100px;
+  transform: translate(-50%);
+  margin-top: 21px;
+  cursor: pointer;
+  z-index: 1000;
+  background-color: black;
+}
+
+#home-icon{
+  position: absolute;
+  font-size: 30px;
+  right: 100px;
   transform: translate(-50%);
   margin-top: 21px;
   cursor: pointer;
@@ -203,10 +214,10 @@ canvas{
 }
 
 @media(max-width:600px){
-  .play-music,#home-icon,.info{
+  .play-music,.info,#mute-icon{
       left: 50px;
   }
-  .instruction-wrapper{
+  .instruction-wrapper,#home-icon{
     right: 50px;
   }
 }

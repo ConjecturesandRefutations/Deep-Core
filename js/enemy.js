@@ -33,7 +33,7 @@ class Enemy {
         if (attacking) {
           // Change the image to the melee attacking image every 300 milliseconds
           enemyImg.src = './images/enemy-knife-attack.png';
-          slash.play();
+          if(!audioMuted){slash.play()};
 
           // Deduct health only if not previously attacking
           if (!this.wasAttacking && (distanceToPlayer <= 65) && (currentGame.health > 0)) {
@@ -45,7 +45,7 @@ class Enemy {
               currentPlayer.isWounded = false;
             }, 500);
             healthValue.innerText = currentGame.health;
-            wound.play();
+            if(!audioMuted){wound.play()};
           } 
 
           this.wasAttacking = true;

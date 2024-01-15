@@ -131,16 +131,16 @@ class Player {
           
         if (direction === 'up' && this.upButtonDown && this.y > 5) {
           this.y -= 7;
-          stepOne.play();
+          if(!audioMuted){stepOne.play()};
         } else if (direction === 'down' && this.downButtonDown && this.y < canvas.height - this.height - 5) {
           this.y += 7;
-          stepOne.play();
+          if(!audioMuted){stepOne.play()};
         } else if (direction === 'left' && this.leftButtonDown && this.x > 15) {
           this.x -= 7;
-          stepOne.play();
+          if(!audioMuted){stepOne.play()};
         } else if (direction === 'right' && this.rightButtonDown && this.x < canvas.width - this.width - 15) {
           this.x += 7;
-          stepOne.play();
+          if(!audioMuted){stepOne.play()};
         }
         requestAnimationFrame(movePlayer);
       }
@@ -201,7 +201,7 @@ class Player {
       currentGame.bullets.push(bullet);
       this.bulletFired = true; // Set the flag to true
       gunshot.currentTime = 0;
-      gunshot.play();
+      if(!audioMuted){gunshot.play()};
     }
   }
 

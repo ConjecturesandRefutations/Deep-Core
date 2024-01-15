@@ -51,3 +51,19 @@ opening.addEventListener('ended', () => {
   volumeIcon.classList.remove('fa', 'fa-volume-up');
   volumeIcon.classList.add('fa', 'fa-volume-mute');
 });
+
+const muteIcon = document.getElementById('mute-icon');
+let audioMuted = false;
+
+// Click event listener to the opening audio element
+muteIcon.addEventListener('click', () => {
+  if (!audioMuted) {
+    audioMuted  = true;
+    muteIcon.classList.remove('fa', 'fa-volume-up');
+    muteIcon.classList.add('fa', 'fa-volume-mute');
+  } else {
+    audioMuted = false;
+    muteIcon.classList.remove('fa', 'fa-volume-mute');
+    muteIcon.classList.add('fa', 'fa-volume-up');
+  }
+});
