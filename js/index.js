@@ -10,7 +10,7 @@ let divisor = 60;
 background.src = "./images/field.jpg"; */
 
 //Opening Section
-const opening = document.querySelector('.opening-section');
+const openingSection = document.querySelector('.opening-section');
 
 //Arrow Controls
 const arrowControls = document.querySelector('.arrow-controls');
@@ -27,10 +27,10 @@ window.onload = () => {
   const startButton = document.getElementById('start-button');
   startButton.onclick = () => { 
     canvas.style.display = '';
-    opening.style.display = 'none';
+    openingSection.style.display = 'none';
     arrowControls.style.display = '';
     info.style.display = '';
-    //stone.play();
+    pauseOpeningAudio();
     startGame();
   };
 };

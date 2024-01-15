@@ -36,6 +36,10 @@ canvas{
   color: red;
   cursor: pointer;
   background-color: black;
+  position: absolute;
+  left: 50%;
+  top: 60%;
+  transform: translate(-50%,-50%);
 }
 
 .arrow-button {
@@ -103,11 +107,64 @@ canvas{
   font-size: 20px;
 }
 
+#title{
+  white-space: nowrap;
+  font-size: 40px;
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%,-50%);
+}
+
+.instruction-wrapper{
+  cursor: pointer;
+  position: absolute;
+  padding: none;
+  display: flex;
+  flex-direction: row;
+  top: 21px;
+  right: 100px;
+}
+
+.play-music{
+  cursor: pointer;
+  position: absolute;
+  padding: none;
+  display: flex;
+  flex-direction: row;
+  top: 21px;
+  left: 100px;
+}
+
+#volume-icon,#instruction-icon{margin-top: 21px;}
+
 @media(min-width:1111px){
   .arrow-controls{
     display: none;
   }
 }
+
+@media(max-width:600px){
+  .play-music{
+      left: 50px;
+  }
+  .instruction-wrapper{
+    right: 50px;
+  }
+}
+
+@media(max-width:500px){
+  #opening-music,#instructions{
+    display: none;
+  }
+  #volume-icon{
+    font-size: 40px;
+  }
+  #instruction-icon{
+    font-size: 40px;
+  }
+}
+
 
 @media(max-width:450px){
   .info{
