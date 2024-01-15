@@ -149,6 +149,7 @@ canvas{
   margin-top: 21px;
   cursor: pointer;
   z-index: 1000;
+  background-color: black;
 }
 
 #volume-icon,#instruction-icon{
