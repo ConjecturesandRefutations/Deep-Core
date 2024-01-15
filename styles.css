@@ -130,6 +130,13 @@ canvas{
   right: 100px;
 }
 
+.instruction-text{
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%);
+}
+
 .play-music{
   cursor: pointer;
   position: absolute;
@@ -141,6 +148,17 @@ canvas{
 }
 
 #volume-icon,#instruction-icon{margin-top: 21px;}
+
+#back{
+  position: absolute;
+  top: 21px;
+  right: 100px;
+  background-color: black;
+  color: red;
+  font-family: 'Courier New', sans-serif;
+  font-size: large;
+  cursor: pointer;
+}
 
 @media(min-width:1111px){
   .arrow-controls{

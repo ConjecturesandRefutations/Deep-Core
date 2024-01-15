@@ -9,32 +9,6 @@ let divisor = 60;
 /* let background = new Image();
 background.src = "./images/field.jpg"; */
 
-//Opening Section
-const openingSection = document.querySelector('.opening-section');
-
-//Arrow Controls
-const arrowControls = document.querySelector('.arrow-controls');
-arrowControls.style.display = 'none';
-
-//Info Section
-const info = document.querySelector('.info');
-info.style.display = 'none';
-const scoreValue = document.getElementById('score-value');
-const healthValue = document.getElementById('health-value');
-
-// Start Button
-window.onload = () => {
-  const startButton = document.getElementById('start-button');
-  startButton.onclick = () => { 
-    canvas.style.display = '';
-    openingSection.style.display = 'none';
-    arrowControls.style.display = '';
-    info.style.display = '';
-    pauseOpeningAudio();
-    startGame();
-  };
-};
-
 function startGame(){
   currentGame = new Game();
 /*   ctx.drawImage(background, 0, 0,canvas.width,canvas.height); // draw background image

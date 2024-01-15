@@ -36,7 +36,7 @@ class Enemy {
           slash.play();
 
           // Deduct health only if not previously attacking
-          if (!this.wasAttacking && (distanceToPlayer <= 60) && (currentGame.health > 0)) {
+          if (!this.wasAttacking && (distanceToPlayer <= 65) && (currentGame.health > 0)) {
             currentGame.health -= 10;
             currentPlayer.isWounded = true;
 
