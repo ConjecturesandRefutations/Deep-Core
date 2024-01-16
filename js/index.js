@@ -253,8 +253,8 @@ for (let i = currentGame.medikits.length - 1; i >= 0; i--) {
   }
 }
 
-// Check if the player's score is a multiple of 75 and spawn a pill
-if (currentGame.score % 75 === 0 && currentGame.score !== 0 && !pillSpawned) {
+// Check if the player's score is a multiple of 50 and spawn a pill
+if (currentGame.score % 50 === 0 && currentGame.score !== 0 && !pillSpawned) {
   // Spawn a new pill only if the player's score is a multiple of 50
   const pillWidth = 30; 
   const pillHeight = 10;
@@ -279,8 +279,8 @@ for (let i = currentGame.pills.length - 1; i >= 0; i--) {
 
   if (pill.collidesWith(currentPlayer.x, currentPlayer.y, currentPlayer.width, currentPlayer.height)) {
     currentGame.pills.splice(i, 1);
-    enemySpeed-=0.5;
-    divisor+=10;
+    enemySpeed-=0.25;
+    divisor+=5;
     if(!audioMuted){
     magic.play();
     }
