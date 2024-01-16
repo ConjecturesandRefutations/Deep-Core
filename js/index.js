@@ -281,7 +281,9 @@ for (let i = currentGame.pills.length - 1; i >= 0; i--) {
     currentGame.pills.splice(i, 1);
     enemySpeed-=0.5;
     divisor+=10;
-    pills.play();
+    if(!audioMuted){
+    magic.play();
+    }
   } else {
     // Draw and update the pill
     pill.drawPill();

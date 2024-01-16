@@ -7,7 +7,7 @@ const slash = new Audio('./audio/slash.wav');
 const wound = new Audio('./audio/grunt_2.wav');
 const opening = new Audio('./audio/opening-music.mp3');
 const medical = new Audio('./audio/medikit.wav');
-const pills = new Audio('./audio/pill.wav');
+const magic = new Audio('./audio/pill.wav');
 
 const openingAudio = document.querySelector('.play-music');
 const volumeIcon = document.getElementById('volume-icon');
