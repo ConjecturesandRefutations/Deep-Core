@@ -3,10 +3,12 @@ let currentGame;
 let currentPlayer;
 let animationID;
 let enemyFrequency = 0; // support the logic for generating enemies
-let enemySpeed = 2;
+let enemySpeed = 1.5;
 let divisor = 60;
 let gameOver = false;
 
+let startTime = 0;
+let countdown = 20;
 
 // Medikit Spawning
 let medikitSpawnTimer = 0;
@@ -18,6 +20,7 @@ background.src = "./images/field.jpg"; */
 
 function startGame(){
   gameOver = false;
+  startTime = Date.now();
   currentGame = new Game();
 /*   ctx.drawImage(background, 0, 0,canvas.width,canvas.height); // draw background image
  */  currentGame.bullets = [];
@@ -40,6 +43,17 @@ function updateCanvas() {
 
   if(gameOver){
     return;
+  }
+
+  const currentTime = Date.now();
+  const elapsedTimeInSeconds = Math.floor((currentTime - startTime) / 1000); // Calculate elapsed time in seconds
+
+  if (elapsedTimeInSeconds >= 20) { // Increase level every 20 seconds
+    enemySpeed += 0.25;
+    if (divisor > 2) {
+        divisor -= 5;
+    }
+    startTime = currentTime; // Reset the start time
   }
 
   ctx.clearRect(0, 0, canvas.width, canvas.height); // clear canvas
@@ -178,8 +192,8 @@ const isMedikitInGame = currentGame.medikits.length > 0;
 // Check if enough time has passed for a new medikit to be spawned
 if (!isMedikitInGame && overallMedikitTimer >= medikitSpawnInterval && currentGame.health < 100) {
   // Spawn a new medikit only if there is no medikit in the game
-  const randomMedikitX = Math.floor(Math.random() * canvas.width);
-  const randomMedikitY = Math.floor(Math.random() * canvas.height);
+  const randomMedikitX = Math.floor(Math.random() * canvas.width +50);
+  const randomMedikitY = Math.floor(Math.random() * canvas.height +50);
   const medikitWidth = 30;
   const medikitHeight = 30;
 
@@ -241,13 +255,7 @@ if(currentGame.health===0){
   gameOver = true;
 }
   animationID = requestAnimationFrame(updateCanvas);
-}
-
-function detectCollision(enemy) {
-  return ((currentPlayer.x < enemy.x + enemy.width) &&         // check left side of element 
-  (currentPlayer.x + enemy.width > enemy.x) &&           // check right side
-  (currentPlayer.y < enemy.y + enemy.height) &&         // check top side
-  (currentPlayer.y + currentPlayer.height > enemy.y));           // check bottom side
+  console.log('divisor' + divisor,'enemy speed' + enemySpeed)
 }
 
 function resetScore(){
@@ -255,7 +263,9 @@ function resetScore(){
   currentGame.health = 100;
   currentGame.score = 0;
   scoreValue.innerText = currentGame.score;
-  healthValue.innerText = currentGame.health;  
+  healthValue.innerText = currentGame.health;
+  enemySpeed = 1.5;
+  divisor = 60;  
 }
 
 function endGame(){

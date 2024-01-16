@@ -148,7 +148,6 @@ class Player {
     
     movePlayer();
   }
-  
 
   stopMovingPlayer() {
     // Stop the player's movement when all buttons are released
