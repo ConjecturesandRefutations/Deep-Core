@@ -208,9 +208,20 @@ for (let i = currentGame.medikits.length - 1; i >= 0; i--) {
     if (currentGame.health <= 80) {
       currentGame.health += 20;
       healthValue.innerText = currentGame.health;
+      // Display the bonus indicator and then hide it after a delay
+      const healthIndicator = document.getElementById('health-indicator');
+      healthIndicator.classList.remove('hidden');
+      setTimeout(() => {
+            healthIndicator.classList.add('hidden');
+        }, 1000); 
     } else if (currentGame.health === 90) {
       currentGame.health += 10;
       healthValue.innerText = currentGame.health;
+      const tenIndicator = document.getElementById('ten-indicator');
+      tenIndicator.classList.remove('hidden');
+      setTimeout(() => {
+            tenIndicator.classList.add('hidden');
+        }, 1000); 
     }
     // Remove the medikit from the array
     currentGame.medikits.splice(i, 1);
@@ -229,9 +240,7 @@ if(currentGame.health===0){
   finalScore.innerText = currentGame.score;
   gameOver = true;
 }
-
   animationID = requestAnimationFrame(updateCanvas);
-
 }
 
 function detectCollision(enemy) {

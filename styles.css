@@ -201,6 +201,10 @@ canvas{
   background-color: black;
 }
 
+.hidden {
+  display: none;
+}
+
 @media(min-width:1111px){
   .arrow-controls{
     display: none;
