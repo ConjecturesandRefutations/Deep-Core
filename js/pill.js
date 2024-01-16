@@ -1,15 +1,15 @@
-class Medikit {
+class Pill {
     constructor(x, y, width, height) {
       this.x = x;
       this.y = y;
       this.width = width;
       this.height = height;
-      this.img = './images/medikit.png'
+      this.img = './images/pill.png'
     }
   
-    drawMedikit() {
+    drawPill() {
         const mediImg = new Image();
-        mediImg.src = './images/medikit.png'
+        mediImg.src = './images/pill.png'
         ctx.drawImage(mediImg, this.x, this.y, this.width, this.height);
     }
   

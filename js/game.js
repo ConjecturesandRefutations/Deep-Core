@@ -6,5 +6,6 @@ class Game {
         this.bullets = [];
         this.health = 100;
         this.medikits = [];
+        this.pills = [];
     }
 }

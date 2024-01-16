@@ -13,6 +13,7 @@ let countdown = 20;
 // Medikit Spawning
 let medikitSpawnTimer = 0;
 let overallMedikitTimer = 0; // Variable for tracking overall time for medikit spawning
+let pillSpawned = false; 
 const medikitSpawnInterval = 20 * divisor;
 
 /* let background = new Image();
@@ -191,13 +192,17 @@ const isMedikitInGame = currentGame.medikits.length > 0;
 
 // Check if enough time has passed for a new medikit to be spawned
 if (!isMedikitInGame && overallMedikitTimer >= medikitSpawnInterval && currentGame.health < 100) {
-  // Spawn a new medikit only if there is no medikit in the game
-  const randomMedikitX = Math.floor(Math.random() * canvas.width +50);
-  const randomMedikitY = Math.floor(Math.random() * canvas.height +50);
-  const medikitWidth = 30;
-  const medikitHeight = 30;
 
-  const newMedikit = new Medikit(randomMedikitX, randomMedikitY, medikitWidth, medikitHeight);
+  const medikitSize = 30;
+  const randomMedikitPosition = getRandomPosition(medikitSize, medikitSize);
+
+  const newMedikit = new Medikit(
+    randomMedikitPosition.x,
+    randomMedikitPosition.y,
+    medikitSize,
+    medikitSize
+  );
+
   currentGame.medikits.push(newMedikit);
 
   // Reset medikit spawn timer
@@ -248,6 +253,46 @@ for (let i = currentGame.medikits.length - 1; i >= 0; i--) {
   }
 }
 
+// Check if the player's score is a multiple of 50 and spawn a pill
+if (currentGame.score % 50 === 0 && currentGame.score !== 0 && !pillSpawned) {
+  // Spawn a new pill only if the player's score is a multiple of 50
+  const pillWidth = 30; 
+  const pillHeight = 10;
+  const randomPillPosition = getRandomPosition(pillWidth, pillHeight);
+
+  const newPill = new Pill(
+    randomPillPosition.x,
+    randomPillPosition.y,
+    pillWidth,
+    pillHeight
+  );
+
+  currentGame.pills.push(newPill);
+
+  // Set the flag to true to indicate that a pill has been spawned
+  pillSpawned = true;
+}
+
+// Check for collisions with pills
+for (let i = currentGame.pills.length - 1; i >= 0; i--) {
+  const pill = currentGame.pills[i];
+
+  if (pill.collidesWith(currentPlayer.x, currentPlayer.y, currentPlayer.width, currentPlayer.height)) {
+    currentGame.pills.splice(i, 1);
+    enemySpeed-=0.5;
+    divisor+=10;
+    pills.play();
+  } else {
+    // Draw and update the pill
+    pill.drawPill();
+  }
+}
+
+// Reset the flag when the player's score is not a multiple of 50
+if (currentGame.score % 50 !== 0) {
+  pillSpawned = false;
+}
+
 //Logic for ending the game
 if(currentGame.health===0){
   endGame();
@@ -256,6 +301,12 @@ if(currentGame.health===0){
 }
   animationID = requestAnimationFrame(updateCanvas);
   console.log('divisor' + divisor,'enemy speed' + enemySpeed)
+}
+
+function getRandomPosition(width, height) {
+  const randomX = Math.floor(Math.random() * (canvas.width - width));
+  const randomY = Math.floor(Math.random() * (canvas.height - height));
+  return { x: randomX, y: randomY };
 }
 
 function resetScore(){
