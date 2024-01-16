@@ -5,5 +5,6 @@ class Game {
         this.score = 0;
         this.bullets = [];
         this.health = 100;
+        this.medikits = [];
     }
 }

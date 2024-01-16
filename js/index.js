@@ -7,6 +7,12 @@ let enemySpeed = 2;
 let divisor = 60;
 let gameOver = false;
 
+
+// Medikit Spawning
+let medikitSpawnTimer = 0;
+let overallMedikitTimer = 0; // Variable for tracking overall time for medikit spawning
+const medikitSpawnInterval = 20 * divisor;
+
 /* let background = new Image();
 background.src = "./images/field.jpg"; */
 
@@ -163,6 +169,60 @@ for (let i = 0; i < currentGame.enemies.length; i++) {
   }
 }
 
+// Code for spawning medikits
+medikitSpawnTimer++;
+overallMedikitTimer++;
+
+const isMedikitInGame = currentGame.medikits.length > 0;
+
+// Check if enough time has passed for a new medikit to be spawned
+if (!isMedikitInGame && overallMedikitTimer >= medikitSpawnInterval && currentGame.health < 100) {
+  // Spawn a new medikit only if there is no medikit in the game
+  const randomMedikitX = Math.floor(Math.random() * canvas.width);
+  const randomMedikitY = Math.floor(Math.random() * canvas.height);
+  const medikitWidth = 30;
+  const medikitHeight = 30;
+
+  const newMedikit = new Medikit(randomMedikitX, randomMedikitY, medikitWidth, medikitHeight);
+  currentGame.medikits.push(newMedikit);
+
+  // Reset medikit spawn timer
+  medikitSpawnTimer = 0;
+
+  // Reset overall medikit timer when a new medikit is spawned
+  overallMedikitTimer = 0;
+} else {
+  // Increment overall medikit timer if no new medikit is spawned
+  overallMedikitTimer++;
+}
+
+// Check for collisions with medikits
+for (let i = currentGame.medikits.length - 1; i >= 0; i--) {
+  const medikit = currentGame.medikits[i];
+
+  if (medikit.collidesWith(currentPlayer.x, currentPlayer.y, currentPlayer.width, currentPlayer.height)) {
+    // Player collided with medikit
+    if (!audioMuted) {
+      medical.play();
+    }
+    if (currentGame.health <= 80) {
+      currentGame.health += 20;
+      healthValue.innerText = currentGame.health;
+    } else if (currentGame.health === 90) {
+      currentGame.health += 10;
+      healthValue.innerText = currentGame.health;
+    }
+    // Remove the medikit from the array
+    currentGame.medikits.splice(i, 1);
+
+    // Reset overall medikit timer when a medikit is collected
+    overallMedikitTimer = 0;
+  } else {
+    // Draw and update medikit
+    medikit.drawMedikit();
+  }
+}
+
 //Logic for ending the game
 if(currentGame.health===0){
   endGame();
@@ -172,6 +232,13 @@ if(currentGame.health===0){
 
   animationID = requestAnimationFrame(updateCanvas);
 
+}
+
+function detectCollision(enemy) {
+  return ((currentPlayer.x < enemy.x + enemy.width) &&         // check left side of element 
+  (currentPlayer.x + enemy.width > enemy.x) &&           // check right side
+  (currentPlayer.y < enemy.y + enemy.height) &&         // check top side
+  (currentPlayer.y + currentPlayer.height > enemy.y));           // check bottom side
 }
 
 function resetScore(){

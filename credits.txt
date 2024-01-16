@@ -1,9 +1,11 @@
 The player sprites used in this game were created Riley Gombart. This pack is licensed under CC-BY 3.0. They can be found at `https://unluckystudio.com/free-top-down-shooterplayer-sprites/`
 
-The fingerprint image used as the opening background can be found at `https://www.cleanpng.com/png-fingerprint-scanner-transparency-image-scanner-fin-7322716/download-png.html1
+The fingerprint image used as the opening background and favicon can be found at `https://www.cleanpng.com/png-fingerprint-scanner-transparency-image-scanner-fin-7322716/download-png.html1
 
 The opening music is by <a href="https://pixabay.com/users/gioelefazzeri-16466931/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=132133">Gioele Fazzeri</a> from <a href="https://pixabay.com/music//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=132133">Pixabay</a>
 
-The favicon bullet image comes from <a href="https://www.freepnglogos.com/images/bullet-8468.html">Get it on golden bullets images</a>
+The bullet image comes from <a href="https://www.freepnglogos.com/images/bullet-8468.html">Get it on golden bullets images</a>
+
+The medical kit image comes from `pngtree.com`
 
 Photo of snow field by <a href="https://unsplash.com/@odiin?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Erik Odiin</a> on <a href="https://unsplash.com/photos/three-parked-vehicles-on-snow-surface-SP8TsqCsJ_g?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
