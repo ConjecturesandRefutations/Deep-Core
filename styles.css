@@ -123,7 +123,7 @@ canvas{
   padding: none;
 }
 
-.instruction-text{
+.instruction-text,.credit-text{
   position: absolute;
   top: 20%;
   left: 50%;
@@ -137,6 +137,16 @@ canvas{
   display: flex;
   flex-direction: row;
   top: 21px;
+  left: 100px;
+}
+
+.credits{
+  cursor: pointer;
+  position: absolute;
+  padding: none;
+  display: flex;
+  flex-direction: row;
+  bottom: 21px;
   left: 100px;
 }
 
@@ -163,12 +173,12 @@ canvas{
   background-color: black;
 }
 
-#volume-icon,#instruction-icon{
+#volume-icon,#instruction-icon,#credit-icon{
   margin-top: 21px;
   background-color: black;
 }
 
-#back{
+.back{
   position: absolute;
   top: 21px;
   right: 100px;
@@ -212,13 +222,13 @@ canvas{
 }
 
 @media(max-width:1111px){
-  .instruction-text{
+  .instruction-text,.credit-text{
     top: 10%;
   }
 }
 
 @media(max-width:600px){
-  .play-music,.info,#mute-icon{
+  .play-music,.info,#mute-icon,.credits,#credit-icon{
       left: 50px;
   }
   .instruction-wrapper,#home-icon{
@@ -227,19 +237,17 @@ canvas{
 }
 
 @media(max-width:500px){
-  #opening-music,#instructions{
+  #opening-music,#instructions,#credits{
     display: none;
   }
-  #volume-icon{
+  #volume-icon,#instruction-icon,#credit-icon{
     font-size: 40px;
   }
-  #instruction-icon{
-    font-size: 40px;
-  }
-  .instruction-text{
+  .instruction-text,.credit-text{
     top: 7%;
+    width: 80%;
   }
-  #back{
+  .back{
     right: 50px;
   }
 }

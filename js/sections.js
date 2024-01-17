@@ -23,12 +23,26 @@ const instructionButton = document.querySelector('.instruction-wrapper');
     instructionSection.style.display = '';
 }
 
-// Back Button
-const backButton = document.getElementById('back');
-backButton.onclick = () => {
-  openingSection.style.display = '';
-  instructionSection.style.display = 'none';
+
+//Credits Section
+const creditsSection = document.querySelector('.credits-section');
+creditsSection.style.display = 'none';
+//Credits Button
+const creditsButton = document.querySelector('.credits');
+  creditsButton.onclick = () => {
+    openingSection.style.display = 'none';
+    creditsSection.style.display = '';
 }
+
+// Back Button
+const backButtonList = document.querySelectorAll('.back');
+backButtonList.forEach(backButton => {
+  backButton.onclick = () => {
+    openingSection.style.display = '';
+    instructionSection.style.display = 'none';
+    creditsSection.style.display = 'none';
+  };
+});
 
 //Home Button
 const homeButton = document.getElementById('home-icon');
