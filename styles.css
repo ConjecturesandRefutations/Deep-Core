@@ -5,6 +5,10 @@ html, body{
     color: red;
     background-color: black;
 }
+
+a{
+  color: red;
+}
    
 .opening-section{
   position: absolute;
@@ -251,7 +255,6 @@ canvas{
     right: 50px;
   }
 }
-
 
 @media(max-width:450px){
   .info{
