@@ -44,6 +44,10 @@ backButtonList.forEach(backButton => {
   };
 });
 
+//Weapon  Type
+const weaponType = document.querySelector('.weapon-type');
+weaponType.style.display = 'none';
+
 //Home Button
 const homeButton = document.getElementById('home-icon');
 homeButton.style.display = 'none';
@@ -54,6 +58,7 @@ homeButton.style.display = 'none';
   resetScore();
   homeButton.style.display = 'none';
   muteButton.style.display = 'none'
+  weaponType.style.display = 'none';
   openingAudioPlaying = false;
   opening.currentTime = 0;
   arrowControls.style.display = 'none';
@@ -80,6 +85,7 @@ window.onload = () => {
     info.style.display = '';
     homeButton.style.display = '';
     muteButton.style.display = '';
+    weaponType.style.display = '';
     pauseOpeningAudio();
     startGame();
   };
@@ -99,5 +105,7 @@ const restartButton = document.getElementById('restart-button');
   info.style.display = '';
   arrowControls.style.display = '';
   muteButton.style.display = '';
+  weaponType.style.display = '';
   startGame();
 }
+

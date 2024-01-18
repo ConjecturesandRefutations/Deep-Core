@@ -33,6 +33,7 @@
 
     <section class="instruction-section">
         <div class="instruction-text">
+            <h3 style="text-align: center;">Intructions</h3>
             <p>The object of the game is to shoot the knived enemies.</p>
             <p>For each attacker you kill, your score increases by 1.</p>
             <p>When a knived enemy gets close enough, he will attack. If you are sufficiently close whilst he attacks, you will lose health.</p>
@@ -66,12 +67,16 @@
         <button class="arrow-button down" id="down-button">↓</button>
         <button class="arrow-button left" id="left-button">←</button>
         <button class="arrow-button right" id="right-button">→</button>
-        <button class="arrow-button" id="shoot"><img src="./images/pistol-bullet.png" alt="bullet" id="bullet"></button>
+        <button class="arrow-button" id="shoot"><img src="./images/pistol.png" alt="bullet" id="weapon-img"></button>
     </section>
 
+    <p class="weapon-type"></p>
+
     <section class="info">
-        Health: <span id="health-value">100</span> <span id="health-indicator" class="health-indicator hidden" style="color: green;">+20</span><span id="ten-indicator" class="ten-indicator hidden" style="color: green;">+10</span></div><br/><br/>
-        Kill Count: <span id="score-value">0</span> 
+
+        <p class="one">Health: <span id="health-value">100</span><span id="health-indicator" class="health-indicator hidden" style="color: green;">+20</span><span id="ten-indicator" class="ten-indicator hidden" style="color: green;">+10</span></div><br/></p>
+        <p class="two">Kill Count: <span id="score-value">0</span> </p>
+
     </section>
 
     <section class="game-over">
@@ -90,5 +95,6 @@
     <script src="js/sections.js"></script>
     <script src="js/medikit.js"></script>
     <script src="js/pill.js"></script>
+    <script src="js/shotgun.js"></script>
 </body>
 </html>

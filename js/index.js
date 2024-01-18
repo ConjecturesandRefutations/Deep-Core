@@ -46,6 +46,12 @@ function updateCanvas() {
     return;
   }
 
+  if (currentPlayer.hasPistol) {
+    document.querySelector('.weapon-type').innerText = 'Pistol';
+  } else {
+    document.querySelector('.weapon-type').innerText = 'Shotgun';
+  }
+
   const currentTime = Date.now();
   const elapsedTimeInSeconds = Math.floor((currentTime - startTime) / 1000); // Calculate elapsed time in seconds
 
@@ -295,6 +301,45 @@ if (currentGame.score % 50 !== 0) {
   pillSpawned = false;
 }
 
+if (currentGame.score === 75 && !shotgunSpawned) {
+  // Spawn a new shotgun only if the player's score is a multiple of 50
+  const shotgunWidth = 100; 
+  const shotgunHeight = 50;
+  const randomShotgunPosition = getRandomPosition(shotgunWidth, shotgunHeight);
+
+  const newShotgun = new Shotgun(
+    randomShotgunPosition.x,
+    randomShotgunPosition.y,
+    shotgunWidth,
+    shotgunHeight
+  );
+
+  currentGame.shotguns.push(newShotgun);
+
+  // Set the flag to true to indicate that a shotgun has been spawned
+  shotgunSpawned = true;
+}
+
+// Check for collisions with shotguns
+for (let i = currentGame.shotguns.length - 1; i >= 0; i--) {
+  const shotgun = currentGame.shotguns[i];
+
+  if (shotgun.collidesWith(currentPlayer.x, currentPlayer.y, currentPlayer.width, currentPlayer.height)) {
+    currentGame.shotguns.splice(i, 1);
+    currentPlayer.hasPistol = false;
+    currentPlayer.hasShotgun = true;
+    const weaponImg = document.getElementById('weapon-img');
+    weaponImg.src = gunType();
+  } else {
+    // Draw and update the shotgun
+    shotgun.drawShotgun();
+  }
+}
+
+if (currentGame.score !== 10) {
+  shotgunSpawned = false;
+}
+
 //Logic for ending the game
 if(currentGame.health===0){
   endGame();
@@ -302,7 +347,6 @@ if(currentGame.health===0){
   gameOver = true;
 }
   animationID = requestAnimationFrame(updateCanvas);
-  console.log('divisor' + divisor,'enemy speed' + enemySpeed)
 }
 
 function getRandomPosition(width, height) {
@@ -327,4 +371,5 @@ function endGame(){
   arrowControls.style.display = 'none';
   GameOver.style.display = '';
   muteButton.style.display = 'none';
+  weaponType.style.display = 'none'
  }

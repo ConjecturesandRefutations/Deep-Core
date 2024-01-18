@@ -79,8 +79,20 @@ canvas{
   left: 200px;
 }
 
-#bullet{
-  height: 50px;
+#weapon-img{
+  width: 50px;
+}
+
+.weapon-type{
+  position: absolute !important;
+  right: 100px;
+  transform: translate(-50%);
+  bottom: 0;
+  z-index: 5;
+  font-size: 20px;
+  font-family: 'Courier New', sans-serif;
+  font-weight: bold;
+  bottom: 20px;
 }
 
 .arrow-controls {
@@ -234,6 +246,9 @@ canvas{
 @media(max-width:1111px){
   .instruction-text,.credit-text{
     top: 10%;
+  }
+  .weapon-type{
+    display: none;
   }
 }
 

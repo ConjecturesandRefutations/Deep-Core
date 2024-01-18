@@ -12,6 +12,8 @@ class Player {
     this.rightButtonDown = false;
     this.throttleDelay = 100; // Keyboard Throttle Delay (Milliseconds)
     this.isWounded = false;
+    this.hasPistol = true;
+    this.hasShotgun = false;
 
     // Select the mobile-controls buttons
     this.leftButton = document.getElementById('left-button');
@@ -34,7 +36,15 @@ class Player {
 
   drawPlayer() {
     const playerImg = new Image();
-    playerImg.src = this.isWounded ? './images/player-wounded.png' : this.img;
+    if (this.isWounded && this.hasShotgun) {
+      playerImg.src = './images/player-shotgun-wounded.png'; // Wounded with shotgun
+    } else if (this.isWounded && this.hasPistol) {
+      playerImg.src = './images/player-wounded.png'; // Wounded without shotgun
+    } else if (!this.isWounded && this.hasShotgun) {
+      playerImg.src = './images/player-shotgun.png'; // Not wounded with shotgun
+    } else {
+      playerImg.src = './images/player-pistol.png'; // Not wounded without shotgun (default)
+    }
   
     // Calculate the angle of rotation based on the player's current direction
     let angle = this.angle;
@@ -156,7 +166,7 @@ class Player {
     }
   }
 
-  shootBullet() {
+     shootBullet() {
     if (!this.bulletFired) {
       let offsetX = 0;
       let offsetY = 0;
@@ -202,6 +212,41 @@ class Player {
       gunshot.currentTime = 0;
       if(!audioMuted){gunshot.play()};
     }
+  } 
+
+  shootShotgun() {
+    if (!this.bulletFired) {
+      const bulletOffsets = [
+        { offsetX: 0, offsetY: 0, angle: 0 },       // Middle bullet
+        { offsetX: 20, offsetY: -20, angle: -Math.PI / 16 },  // Left bullet 
+        { offsetX: -20, offsetY: -20, angle: Math.PI / 16 }   // Right bullet
+      ];
+
+      bulletOffsets.forEach(offset => {
+        const adjustedOffsetX = offset.offsetX;
+        const adjustedOffsetY = offset.offsetY;
+        const adjustedAngle = this.angle + offset.angle; // Adjust the angle
+
+        // Create the bullet with adjusted initial position and angle
+        const bullet = new Bullet(
+          this.x + adjustedOffsetX,
+          this.y + adjustedOffsetY,
+          adjustedAngle
+        );
+
+        currentGame.bullets.push(bullet);
+      });
+
+      this.bulletFired = true; // Set the flag to true
+      shotgun.currentTime = 0;
+      if (!audioMuted) {
+        shotgun.play();
+      }
+    }
+  }
+
+  acquireShotgun() {
+    this.hasShotgun = true;
   }
 
   removeEventListeners() {
@@ -307,6 +352,10 @@ function addTouchListeners() {
 document.addEventListener('keydown', (event) => {
   if (event.keyCode === 32 && gameOver===false) {
     // Spacebar key
-    currentPlayer.shootBullet();
+    if(currentPlayer.hasPistol){
+      currentPlayer.shootBullet();
+      } else if(currentPlayer.hasShotgun){
+      currentPlayer.shootShotgun();
+      }
   }
 });
