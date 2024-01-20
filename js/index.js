@@ -16,6 +16,8 @@ let overallMedikitTimer = 0; // Variable for tracking overall time for medikit s
 let pillSpawned = false; 
 const medikitSpawnInterval = 20 * divisor;
 
+let accelerator = 20;
+
 /* let background = new Image();
 background.src = "./images/field.jpg"; */
 
@@ -55,10 +57,10 @@ function updateCanvas() {
   const currentTime = Date.now();
   const elapsedTimeInSeconds = Math.floor((currentTime - startTime) / 1000); // Calculate elapsed time in seconds
 
-  if (elapsedTimeInSeconds >= 20) { // Increase level every 20 seconds
-    enemySpeed += 0.25;
+  if (elapsedTimeInSeconds >= accelerator) { // Increase level every 20 seconds
+    enemySpeed += 0.5;
     if (divisor > 2) {
-        divisor -= 5;
+        divisor -= 10;
     }
     startTime = currentTime; // Reset the start time
   }
@@ -274,6 +276,9 @@ if (currentGame.score % 50 === 0 && currentGame.score !== 0 && !pillSpawned) {
   );
 
   currentGame.pills.push(newPill);
+  if(accelerator>2){
+  accelerator--;
+  }
 
   // Set the flag to true to indicate that a pill has been spawned
   pillSpawned = true;
@@ -285,8 +290,8 @@ for (let i = currentGame.pills.length - 1; i >= 0; i--) {
 
   if (pill.collidesWith(currentPlayer.x, currentPlayer.y, currentPlayer.width, currentPlayer.height)) {
     currentGame.pills.splice(i, 1);
-    enemySpeed-=0.375;
-    divisor+=7.5;
+    enemySpeed-=0.5;
+    divisor+=10;
     if(!audioMuted){
     magic.play();
     }
