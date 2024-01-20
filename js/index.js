@@ -290,8 +290,8 @@ for (let i = currentGame.pills.length - 1; i >= 0; i--) {
 
   if (pill.collidesWith(currentPlayer.x, currentPlayer.y, currentPlayer.width, currentPlayer.height)) {
     currentGame.pills.splice(i, 1);
-    enemySpeed-=0.5;
-    divisor+=10;
+    enemySpeed-=1;
+    divisor+=15;
     if(!audioMuted){
     magic.play();
     }
