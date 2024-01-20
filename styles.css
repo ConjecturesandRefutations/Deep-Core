@@ -271,6 +271,22 @@ canvas{
   height: 50px;
 }
 
+.medikit,
+.pill,
+.shotgun {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+#medikit,
+#pill,
+#shotgun {
+  width: 70px;
+  height: auto; /* Maintain aspect ratio */
+}
+
 @media(min-width:1111px){
   .arrow-controls{
     display: none;
