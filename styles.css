@@ -319,6 +319,9 @@ canvas{
     top: 7%;
     width: 80%;
   }
+  #shotty{
+    max-width: 80%;
+  }
   .back{
     right: 50px;
   }
