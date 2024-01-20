@@ -257,6 +257,7 @@ canvas{
 #pill{
   width: 70px;
   height: 30px;
+  top: 50%;
 }
 
 .shotgun{

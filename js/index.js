@@ -18,6 +18,8 @@ const medikitSpawnInterval = 20 * divisor;
 
 let accelerator = 20;
 
+const weaponImg = document.getElementById('weapon-img');
+
 /* let background = new Image();
 background.src = "./images/field.jpg"; */
 
@@ -333,7 +335,6 @@ for (let i = currentGame.shotguns.length - 1; i >= 0; i--) {
     currentGame.shotguns.splice(i, 1);
     currentPlayer.hasPistol = false;
     currentPlayer.hasShotgun = true;
-    const weaponImg = document.getElementById('weapon-img');
     weaponImg.src = gunType();
   } else {
     // Draw and update the shotgun
@@ -364,6 +365,8 @@ function resetScore(){
   gameOver = true;
   currentGame.health = 100;
   currentGame.score = 0;
+  currentPlayer.hasPistol = true;
+  weaponImg.src = gunType();
   scoreValue.innerText = currentGame.score;
   healthValue.innerText = currentGame.health;
   enemySpeed = 1.5;
