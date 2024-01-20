@@ -142,7 +142,7 @@ canvas{
 
 .instruction-text,.credit-text{
   position: absolute;
-  top: 20%;
+  top: 10%;
   left: 50%;
   transform: translate(-50%);
 }
@@ -237,6 +237,39 @@ canvas{
   display: none;
 }
 
+.medikit{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+#medikit{
+  width: 70px;
+  height: 50px;
+}
+
+.pill{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+#pill{
+  width: 70px;
+  height: 30px;
+}
+
+.shotgun{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+#shotgun{
+  width: 70px;
+  height: 50px;
+}
+
 @media(min-width:1111px){
   .arrow-controls{
     display: none;
@@ -244,9 +277,6 @@ canvas{
 }
 
 @media(max-width:1111px){
-  .instruction-text,.credit-text{
-    top: 10%;
-  }
   .weapon-type{
     display: none;
   }

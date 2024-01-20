@@ -301,7 +301,7 @@ if (currentGame.score % 50 !== 0) {
   pillSpawned = false;
 }
 
-if (currentGame.score === 300 && !shotgunSpawned) {
+if (currentGame.score === 100 && !shotgunSpawned) {
   // Spawn a new shotgun only if the player's score is a multiple of 50
   const shotgunWidth = 100; 
   const shotgunHeight = 50;
@@ -336,7 +336,7 @@ for (let i = currentGame.shotguns.length - 1; i >= 0; i--) {
   }
 }
 
-if (currentGame.score !== 300) {
+if (currentGame.score !== 100) {
   shotgunSpawned = false;
 }
 
