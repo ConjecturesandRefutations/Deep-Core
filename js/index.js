@@ -61,7 +61,7 @@ function updateCanvas() {
 
   if (elapsedTimeInSeconds >= accelerator) { // Increase level every 20 seconds
     enemySpeed += 0.5;
-    if (divisor > 2) {
+    if (divisor >= 12) {
         divisor -= 10;
     }
     startTime = currentTime; // Reset the start time
