@@ -82,7 +82,7 @@ class Bullet {
     if(currentPlayer.hasPistol){
     currentPlayer.shootBullet();
     } else if(currentPlayer.hasShotgun){
-    currentPlayer.shootShotGun();
+    currentPlayer.shootShotgun();
     }
     currentPlayer.bulletFired = false;
   });
@@ -93,7 +93,7 @@ class Bullet {
     if(currentPlayer.hasPistol){
     currentPlayer.shootBullet();
     } else if(currentPlayer.hasShotgun){
-    currentPlayer.shootShotGun();
+    currentPlayer.shootShotgun();
     }
     currentPlayer.bulletFired = false;
   });
