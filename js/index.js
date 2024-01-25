@@ -333,6 +333,7 @@ for (let i = currentGame.shotguns.length - 1; i >= 0; i--) {
 
   if (shotgun.collidesWith(currentPlayer.x, currentPlayer.y, currentPlayer.width, currentPlayer.height)) {
     currentGame.shotguns.splice(i, 1);
+    reload.play();
     currentPlayer.hasPistol = false;
     currentPlayer.hasShotgun = true;
     weaponImg.src = gunType();
