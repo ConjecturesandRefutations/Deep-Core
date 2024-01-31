@@ -309,7 +309,7 @@ if (currentGame.score % 50 !== 0) {
 }
 
 if (currentGame.score === 100 && !shotgunSpawned) {
-  // Spawn a new shotgun only if the player's score is a multiple of 50
+  // Spawn a new shotgun only if the player's score is a multiple of 100
   const shotgunWidth = 100; 
   const shotgunHeight = 50;
   const randomShotgunPosition = getRandomPosition(shotgunWidth, shotgunHeight);
