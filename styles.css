@@ -157,6 +157,13 @@ canvas{
   left: 100px;
 }
 
+.two-player{
+ position: absolute;
+ bottom: 21px;
+ left: 100px; 
+ text-decoration: none;
+}
+
 .credits{
   cursor: pointer;
   position: absolute;
@@ -295,6 +302,12 @@ canvas{
 
 @media(max-width:1111px){
   .weapon-type{
+    display: none;
+  }
+}
+
+@media(max-width:800px){
+  .two-player{
     display: none;
   }
 }
